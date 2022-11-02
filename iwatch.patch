@@ -1,0 +1,11 @@
+--- iwatch  2011-01-03 22:29:06.000000000 +0100
++++ iwatch.variant1 2011-01-03 22:33:32.000000000 +0100
+@@ -416,6 +416,8 @@
+     $command =~ /^(.+)$/;
+     return if(!defined($1));
+     my $securecommand = $1;
++    # Force byte-string semantics [why does that work?].
++    utf8::downgrade($securecommand) if (utf8::is_utf8($securecommand));
+     system("$securecommand");
+   }
+   if(defined($Message) && $Path->{'alert'}) {

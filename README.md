@@ -18,7 +18,7 @@ amount of time when being transferred over network.
 The usage is simple: 
 
 ```bash
-docker run \
+docker run -d --name vpk-trimmer \
     -v /my/upload:/in \
     -v /wherever/addons:/out \
     yxnan/l4d2-vpk-trimmer:latest
